@@ -36,7 +36,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,kivymd,plyer
+requirements = python3,kivy,kivymd,plyer,requests
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -70,8 +70,10 @@ osx.kivy_version = 1.11.1
 # kivymd version to use
 osx.kivymd_version = 0.104.1
 
-#plyer lib version
+# plyer lib version
 osx.plyer_version = 1.4.3
+# requests lib version
+osx.requests_version = 2.25.1
 
 
 #
