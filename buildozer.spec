@@ -1,16 +1,16 @@
 [app]
 
 # (str) Title of your application
-title = Lottie Demo
+title = Kim Dev
 
 # (str) Package name
-package.name = lottiedemo
+package.name = master.kim
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = dev.tshirtman
+package.domain = dev.kim
 
 # (str) Source code where the main.py live
-source.dir = src/
+source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
 source.include_exts = py,png,jpg,kv,atlas
