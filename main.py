@@ -4,13 +4,13 @@ from kivy.uix.label import Label
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
-from plyer import vibrator,tts
+from plyer import vibrator,tts,battery
 from kivymd.toast import toast
 from kivy.network.urlrequest import UrlRequest
 import requests
 
 url="http://192.168.43.249/LED=ON"
-#a = str(battery.status)
+a = str(battery.status)
 
 class myapp(App):
     
