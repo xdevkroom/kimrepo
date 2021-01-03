@@ -65,7 +65,7 @@ orientation = portrait
 osx.python_version = 3
 
 # Kivy version to use
-osx.kivy_version = 1.9.1
+osx.kivy_version = 1.11.1
 
 #
 # Android specific
@@ -88,7 +88,9 @@ fullscreen = 0
 # android.presplash_lottie = "42369-weather-wind.json"
 
 # (list) Permissions
-android.permissions = BATTERY_STATS,INTERNET,VIBRATE
+android.permissions = BATTERY_STATS
+android.permission = INTERNET
+android.permission = VIBRATE android.permission = ACCESS_NETWORK_STATE
 
 # (list) features (adds uses-feature -tags to manifest)
 #android.features = android.hardware.usb.host
