@@ -65,15 +65,15 @@ orientation = portrait
 osx.python_version = 3
 
 # Kivy version to use
-osx.kivy_version = 1.11.1
+osx.kivy_version = 1.9.1
 
-# kivymd version to use
-osx.kivymd_version = 0.104.1
 
-# plyer lib version
-osx.plyer_version = 1.4.3
-# requests lib version
-osx.requests_version = 2.25.1
+
+
+
+
+
+
 
 
 #
