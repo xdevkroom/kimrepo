@@ -36,7 +36,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,kivymd,plyer,requests
+requirements = python3,kivy,kivymd,plyer
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -65,7 +65,7 @@ orientation = portrait
 osx.python_version = 3
 
 # Kivy version to use
-osx.kivy_version = 1.11.1
+#osx.kivy_version = 1.11.1
 
 #
 # Android specific
@@ -89,8 +89,7 @@ fullscreen = 0
 
 # (list) Permissions
 android.permissions = BATTERY_STATS
-android.permission = INTERNET
-android.permission = VIBRATE android.permission = ACCESS_NETWORK_STATE
+,INTERNET,VIBRATE,ACCESS_NETWORK_STATE
 
 # (list) features (adds uses-feature -tags to manifest)
 #android.features = android.hardware.usb.host
