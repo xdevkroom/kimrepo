@@ -97,7 +97,7 @@ fullscreen = 0
 # android.presplash_lottie = "42369-weather-wind.json"
 
 # (list) Permissions
-android.permissions = INTERNET,VIBRATE,ACCESS_NETWORK_STATE
+android.permissions = INTERNET,VIBRATE,ACCESS_NETWORK_STATE,BATTERY_STATS
 
 # (list) features (adds uses-feature -tags to manifest)
 #android.features = android.hardware.usb.host
