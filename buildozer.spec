@@ -95,7 +95,7 @@ android.permissions = BATTERY_STATS
 #android.features = android.hardware.usb.host
 
 # (int) Target Android API, should be as high as possible.
-android.api = 28
+android.api = 25
 
 # (int) Minimum API your APK will support.
 #android.minapi = 21

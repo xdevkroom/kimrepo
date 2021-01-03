@@ -37,7 +37,7 @@ class myapp(App):
        
         return b1
     def press(self,instance):
-        vibrator.vibrate(int(1000))
+        vibrator.vibrate()
         self.label.text = self.textin.text
         toast(self.textin.text)
     def ledon(self,instance):
