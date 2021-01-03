@@ -4,18 +4,18 @@ from kivy.uix.label import Label
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
-from plyer import vibrator,tts,battery
+#from plyer import vibrator,tts,battery
 from kivymd.toast import toast
 from kivy.network.urlrequest import UrlRequest
 import requests
 
 url="http://192.168.43.249/LED=ON"
-a = str(battery.status)
+#a = str(battery.status)
 
 class myapp(App):
     
-    tts.speak("hello kivymd مرحبا you welcome")
-    toast(a)
+    #tts.speak("hello kivymd مرحبا you welcome")
+    toast("hello")
     def build(self):
        
         b1=BoxLayout(orientation='vertical')
@@ -37,7 +37,7 @@ class myapp(App):
        
         return b1
     def press(self,instance):
-        vibrator.vibrate()
+        #vibrator.vibrate()
         self.label.text = self.textin.text
         toast(self.textin.text)
     def ledon(self,instance):
