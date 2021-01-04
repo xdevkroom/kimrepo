@@ -246,8 +246,6 @@ android.allow_backup = True
 # (str) python-for-android branch to use, defaults to master
 p4a.branch = develop
 
-p4a apk --permission VIBRATE --
-
 # (str) python-for-android git clone directory (if empty, it will be automatically cloned from github)
 #p4a.source_dir =
 
