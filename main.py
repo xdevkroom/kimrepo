@@ -8,9 +8,23 @@ from plyer import vibrator,tts,battery
 from kivymd.toast import toast
 from kivy.network.urlrequest import UrlRequest
 #import requests
+from jnius import cast
+from jnius import autoclass
 
 url="http://192.168.43.249/LED=ON"
 a = str(battery.status)
+
+PythonActivity = autoclass('org.kivy.android.PythonActivity')
+activity = PythonActivity.mActivity
+Context = autoclass('android.content.Context')
+
+vibrator_service = activity.getSystemService(Context.VIBRATOR_SERVICE)
+vibrator = cast("android.os.Vibrator", vibrator_service)
+
+vibration_effect = autoclass("android.os.VibrationEffect")       
+
+# first argument of createOneShot is the time in ms
+# second argument is the amplitude (range from 1 to 255), -1 is device standard amplitude
 
 class myapp(App):
     
@@ -37,7 +51,8 @@ class myapp(App):
        
         return b1
     def press(self,instance):
-        vibrator.vibrate()
+        vibrator.vibrate(vibration_effect.createOneShot(2000, 150))
+        #vibrator.vibrate()
         self.label.text = self.textin.text
         toast(self.textin.text)
     def ledon(self,instance):
