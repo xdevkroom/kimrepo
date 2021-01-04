@@ -51,7 +51,7 @@ class myapp(App):
        
         return b1
     def press(self,instance):
-        vibrator.vibrate(vibration_effect.createOneShot(2000, 150))
+        vibrator.vibrate(vibration_effect.createOneShot(1000,-1))
         #vibrator.vibrate()
         self.label.text = self.textin.text
         toast(self.textin.text)
