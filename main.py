@@ -4,23 +4,23 @@ from kivy.uix.label import Label
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
-from plyer import tts,battery
+from plyer import tts,battery,vibrator
 from kivymd.toast import toast
 from kivy.network.urlrequest import UrlRequest
 #import requests
-from jnius import autoclass,cast
+#from jnius import autoclass,cast
 
 url="http://192.168.43.249/LED=ON"
 a = str(battery.status)
 
-PythonActivity = autoclass('org.kivy.android.PythonActivity')
-activity = PythonActivity.mActivity
-Context = autoclass('android.content.Context')
+#PythonActivity = autoclass('org.kivy.android.PythonActivity')
+#activity = PythonActivity.mActivity
+#Context = autoclass('android.content.Context')
 
-vibrator_service = activity.getSystemService(Context.VIBRATOR_SERVICE)
-vibrator = cast("android.os.Vibrator", vibrator_service)
+#vibrator_service = activity.getSystemService(Context.VIBRATOR_SERVICE)
+#vibrator = cast("android.os.Vibrator", vibrator_service)
 
-vibration_effect = autoclass("android.os.VibrationEffect")       
+#vibration_effect = autoclass("android.os.VibrationEffect")       
 
 # first argument of createOneShot is the time in ms
 # second argument is the amplitude (range from 1 to 255), -1 is device standard amplitude
@@ -50,8 +50,8 @@ class myapp(App):
        
         return b1
     def press(self,instance):
-        self.a = vibrator.vibrate(vibration_effect.createOneShot(500,50))
-        #vibrator.vibrate()
+        #vibrator.vibrate(vibration_effect.createOneShot(1000,-1))
+        self.a = vibrator.vibrate()
         self.label.text = self.textin.text
         toast(self.textin.text)
     def ledon(self,instance):
