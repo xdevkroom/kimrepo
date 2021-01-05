@@ -10,7 +10,7 @@ class DemoApp(MDApp):
 
     def build(self):
         self.theme_cls.primary_palette = "Orange"
-        self.theme_cls.primary_hue = "100"
+        self.theme_cls.primary_hue = "50"
         self.theme_cls.theme_style = "Dark"
         screen = Screen()
         btn_flat = MDRectangleFlatButton(text='Hello World',
@@ -32,7 +32,7 @@ class DemoApp(MDApp):
         vibrator = cast("android.os.Vibrator", vibrator_service)
 
         vibration_effect = autoclass("android.os.VibrationEffect")
-        return  vibrator.vibrate(vibration_effect.createOneShot(500,100))    
+        return  vibrator.vibrate(vibration_effect.createOneShot(int(500),vibration_effect.DEFAULT_AMPLITUDE))
         
   
 
