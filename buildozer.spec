@@ -85,7 +85,7 @@ fullscreen = 0
 # see https://lottiefiles.com/ for examples and https://airbnb.design/lottie/
 # for general documentation.
 # Lottie files can be created using various tools, like Adobe After Effect or Synfig.
-# android.presplash_lottie = "42369-weather-wind.json"
+android.presplash_lottie = "animation.json"
 
 # (list) Permissions
 android.permissions = VIBRATE,BATTERY_STATS
