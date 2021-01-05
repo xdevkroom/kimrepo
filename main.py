@@ -1,65 +1,41 @@
-#pylint:disable=E1101
-from kivy.app import App
-from kivy.uix.label import Label
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.textinput import TextInput
-from kivy.uix.button import Button
-from plyer import tts,battery,vibrator
+from kivymd.app import MDApp
+from kivymd.uix.screen import Screen
+from kivymd.uix.button import MDRectangleFlatButton
 from kivymd.toast import toast
-from kivy.network.urlrequest import UrlRequest
-#import requests
-#from jnius import autoclass,cast
+from plyer import battery,tts
+from jnius import  autoclass,cast
 
-url="http://192.168.43.249/LED=ON"
 a = str(battery.status)
+class DemoApp(MDApp):
 
-#PythonActivity = autoclass('org.kivy.android.PythonActivity')
-#activity = PythonActivity.mActivity
-#Context = autoclass('android.content.Context')
-
-#vibrator_service = activity.getSystemService(Context.VIBRATOR_SERVICE)
-#vibrator = cast("android.os.Vibrator", vibrator_service)
-
-#vibration_effect = autoclass("android.os.VibrationEffect")       
-
-# first argument of createOneShot is the time in ms
-# second argument is the amplitude (range from 1 to 255), -1 is device standard amplitude
-
-class myapp(App):
-    
-    tts.speak("hello kivymd you welcome")
-    toast(a)
     def build(self):
-       
-        b1=BoxLayout(orientation='vertical')
-        self.textin=TextInput(text="hello",multiline=False)
-        self.label = Label(text="test")
-        butn1= Button(text="kivy")
-        butn2= Button(text="button")
-        butn3= Button(text="layout")
-        butn4= Button(text="start")
-        butn1.bind(on_press=self.ledon)
-        butn4.bind(on_press=self.press)
-        b1.add_widget(self.textin)
-        b1.add_widget(self.label)
-        b1.add_widget(butn1)
-        b1.add_widget(butn2)
-        b1.add_widget(butn3)
-        b1.add_widget(butn4)
+        self.theme_cls.primary_palette = "Orange"
+        self.theme_cls.primary_hue = "100"
+        self.theme_cls.theme_style = "Dark"
+        screen = Screen()
+        btn_flat = MDRectangleFlatButton(text='Hello World',
+                                         pos_hint={'center_x': 0.5, 'center_y': 0.5})
+        screen.add_widget(btn_flat)
+        btn_flat.bind(on_press = self.myfunc)
+        return screen
+    def myfunc(self,any):
+        tts.speak(a)
+        toast(a)
+        DemoApp.vibrating(self)
         
-       
-        return b1
-    def press(self,instance):
-        #vibrator.vibrate(vibration_effect.createOneShot(1000,-1))
-        self.a = vibrator.vibrate()
-        self.label.text = self.textin.text
-        toast(self.textin.text)
-    def ledon(self,instance):
-        self.b = UrlRequest(url,verify=False)
-    
-         
-        
-                
+    def vibrating(self):
+        PythonActivity = autoclass('org.kivy.android.PythonActivity')
+        activity = PythonActivity.mActivity
+        Context = autoclass('android.content.Context')
 
-if __name__=='__main__':
-     myapp().run()
+        vibrator_service = activity.getSystemService(Context.VIBRATOR_SERVICE)
+        vibrator = cast("android.os.Vibrator", vibrator_service)
+
+        vibration_effect = autoclass("android.os.VibrationEffect")
+        return  vibrator.vibrate(vibration_effect.createOneShot(500,100))    
+        
+  
+
+
+DemoApp().run()
+

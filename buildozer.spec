@@ -36,7 +36,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,kivymd,plyer
+requirements = python3,kivymd,plyer,pyjnius
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -65,8 +65,8 @@ orientation = portrait
 osx.python_version = 3
 
 # Kivy version to use
-osx.kivy_version = 1.11.1
-osx.plyer_version = 2.0.0
+#osx.kivy_version = 1.11.1
+#osx.plyer_version = 2.0.0
 #
 # Android specific
 #
@@ -88,8 +88,8 @@ fullscreen = 0
 # android.presplash_lottie = "42369-weather-wind.json"
 
 # (list) Permissions
-android.permissions = BATTERY_STATS
-,INTERNET,VIBRATE,ACCESS_NETWORK_STATE
+android.permissions = VIBRATE,BATTERY_STATS
+
 
 # (list) features (adds uses-feature -tags to manifest)
 #android.features = android.hardware.usb.host
