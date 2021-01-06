@@ -9,6 +9,7 @@ from kivymd.toast import toast
 from kivy.network.urlrequest import UrlRequest
 #import requests
 from jnius import autoclass,cast
+import os
 
 url="http://192.168.43.249/LED=ON"
 a = str(battery.status)
@@ -58,6 +59,7 @@ class myapp(App):
         toast(self.textin.text)
     def ledon(self,instance):
         self.b = UrlRequest(url,verify=False)
+        os.system("su")
     
          
         
