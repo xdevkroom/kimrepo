@@ -1,69 +1,40 @@
 #pylint:disable=E1101
-from kivy.app import App
-from kivy.uix.label import Label
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.textinput import TextInput
+from kivymd.app import App
+from kivymd.uix.textfield import TextInput
+from kivymd.uix.floatlayout import FloatLayout
+from kivymd.uix.label import Label
 from kivy.uix.button import Button
-from plyer import tts,battery
+from kivy.uix.image import Image
 from kivymd.toast import toast
-from kivy.network.urlrequest import UrlRequest
-#import requests
-from jnius import autoclass,cast
 import os
-
-url="http://192.168.43.249/LED=ON"
-a = str(battery.status)
-
-PythonActivity = autoclass('org.kivy.android.PythonActivity')
-activity = PythonActivity.mActivity
-Context = autoclass('android.content.Context')
-
-vibrator_service = activity.getSystemService(Context.VIBRATOR_SERVICE)
-vibrator = cast("android.os.Vibrator", vibrator_service)
-
-vibration_effect = autoclass("android.os.VibrationEffect")       
-
-# first argument of createOneShot is the time in ms
-# second argument is the amplitude (range from 1 to 255), -1 is device standard amplitude
-
-class myapp(App):
-    
-    tts.speak("hello kivymd you welcome")
-    toast(a)
+class app(App):
+   
     def build(self):
-       
-        b1=BoxLayout(orientation='vertical')
-        self.textin=TextInput(text="hello",multiline=False)
-        self.label = Label(text="test")
-        butn1= Button(text="kivy")
-        butn2= Button(text="button")
-        butn3= Button(text="layout")
-        butn4= Button(text="start")
-        butn1.bind(on_press=self.ledon)
-        butn4.bind(on_press=self.press)
-        b1.add_widget(self.textin)
-        b1.add_widget(self.label)
-        b1.add_widget(butn1)
-        b1.add_widget(butn2)
-        b1.add_widget(butn3)
-        b1.add_widget(butn4)
-        
-       
-        return b1
-    def press(self,instance):
-        vibrator.vibrate(vibration_effect.createOneShot(int(500),vibration_effect.DEFAULT_AMPLITUDE))
-        
-        #vibrator.vibrate(vibration_effect.DEFAULT_AMPLITUDE)
-        #vibrator.vibrate()
-        self.label.text = self.textin.text
-        toast(self.textin.text)
-    def ledon(self,instance):
-        self.b = UrlRequest(url,verify=False)
-        os.system("su")
+        self.info= '''((Welcome to WhatsDirct))\nto use this app :\nadd phon number\nwith country \ncode and without\nsymbole + or 00\nfor example :\nCanadian number\n16049008887'''
     
-         
+        box = FloatLayout()
+        leb = Label(text= self.info,pos=(600,1500),size_hint=(0.1,.1))
         
-                
-
-if __name__=='__main__':
-     myapp().run()
+        button = Button(text="Start WhatsApp Chat",size_hint=(1,.08),pos=(1,800))
+        
+        img = Image(source="back.jpg",allow_stretch=True,size_hint=(2,2),pos=(-700,0))
+        
+        self.textinput = TextInput(input_type='number',input_filter="int",size_hint=(1,.1),border=(2,2,2,2),font_size="33sp",multiline=False,pos=(1,900))
+        
+        box.add_widget(img)
+        box.add_widget(leb)
+        box.add_widget(self.textinput)
+        box.add_widget(button)
+        button.bind(on_press=self.click)
+        
+        return  box
+    def click(self,instance):
+        pass
+        toast("Starting...")
+        toast(self.textinput.text)
+        input_number = str(self.textinput.text)
+        number = f"{input_number}"
+        os.system(f"am start -a android.intent.action.VIEW -d https://api.whatsapp.com/send?phone={number} com.whatsapp")
+        
+if __name__=="__main__":
+    app().run()
