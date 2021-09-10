@@ -16,11 +16,11 @@ class app(App):
         
         button = Button(text="Start WhatsApp Chat",size_hint=(1,.08),pos=(1,800))
         
-        img = Image(source="back.jpg",allow_stretch=True,size_hint=(2,2),pos=(-700,0))
+        #img = Image(source="back.jpg",allow_stretch=True,size_hint=(2,2),pos=(-700,0))
         
         self.textinput = TextInput(input_type='number',input_filter="int",size_hint=(1,.1),border=(2,2,2,2),font_size="33sp",multiline=False,pos=(1,900))
         
-        box.add_widget(img)
+        #box.add_widget(img)
         box.add_widget(leb)
         box.add_widget(self.textinput)
         box.add_widget(button)
