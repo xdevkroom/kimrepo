@@ -14,7 +14,7 @@ class app(App):
         box = FloatLayout()
         leb = Label(text= self.info,pos=(600,1500),size_hint=(0.1,.1))
         
-        button = Button(text="Start WhatsApp Chat",size_hint=(1,.08),pos=(1,800))
+        button = Button(text="Start WhatsApp Chat",size_hint=(1,.08),pos=(1,800),on_press=self.click)
         
         img = Image(source="back.jpg",allow_stretch=True,size_hint=(2,2),pos=(-700,0))
         
@@ -24,7 +24,7 @@ class app(App):
         box.add_widget(leb)
         box.add_widget(self.textinput)
         box.add_widget(button)
-        #self.button.bind(on_press=self.click)
+        #button.bind(on_press=self.click)
         
         return  box
     def click(self,instance):
