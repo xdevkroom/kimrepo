@@ -9,7 +9,7 @@ import os
 class app(App):
    
     def build(self):
-        self.info= """((Welcome to WhatsDirct))\nKSA version\ntobuse this app \nEnter phon number \nfor example:\n05XXXXXXXX"""
+        self.info= """((Welcome to WhatsDirct))\nKSA version\nto use this app \nEnter phon number \nfor example:\n05XXXXXXXX"""
     
         box = FloatLayout()
         leb = Label(text= self.info,pos=(600,1500),size_hint=(0.1,.1))
