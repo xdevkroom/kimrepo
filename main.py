@@ -1,7 +1,6 @@
-#pylint:disable=E1101
-from kivymd.app import App
-from kivymd.uix.textfield import TextInput
-from kivymd.uix.floatlayout import FloatLayout
+from kivy.app import App
+from kivy.uix.textinput import TextInput
+from kivy.uix.floatlayout import FloatLayout
 from kivymd.uix.label import Label
 from kivy.uix.button import Button
 from kivy.uix.image import Image
@@ -36,5 +35,5 @@ class app(App):
         number = f"{input_number}"
         os.system(f"am start -a android.intent.action.VIEW -d https://api.whatsapp.com/send?phone={number} com.whatsapp")
         
-if __name__=='__main__':
+if __name__=="__main__":
     app().run()
