@@ -14,16 +14,16 @@ class app(App):
         box = FloatLayout()
         leb = Label(text= self.info,pos=(600,1500),size_hint=(0.1,.1))
         
-        self.button = Button(text="Start WhatsApp Chat",size_hint=(1,.08),pos=(1,800))
+        button = Button(text="Start WhatsApp Chat",size_hint=(1,.08),pos=(1,800))
         
-        #img = Image(source="back.jpg",allow_stretch=True,size_hint=(2,2),pos=(-700,0))
+        img = Image(source="back.jpg",allow_stretch=True,size_hint=(2,2),pos=(-700,0))
         
         self.textinput = TextInput(input_type='number',input_filter="int",size_hint=(1,.1),border=(2,2,2,2),font_size="33sp",multiline=False,pos=(1,900))
         
-        #box.add_widget(img)
+        box.add_widget(img)
         box.add_widget(leb)
         box.add_widget(self.textinput)
-        box.add_widget(self.button)
+        box.add_widget(button)
         #self.button.bind(on_press=self.click)
         
         return  box
