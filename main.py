@@ -24,15 +24,14 @@ class app(App):
         box.add_widget(leb)
         box.add_widget(self.textinput)
         box.add_widget(button)
-        #button.bind(on_press=self.click)
-        
+      
         return  box
     def click(self,instance):
-        toast("Starting...")
-        toast(self.textinput.text)
-        input_number = str(self.textinput.text)
-        number = f"{input_number}"
+       
+        number = str(self.textinput.text)
         os.system(f"am start -a android.intent.action.VIEW -d https://api.whatsapp.com/send?phone={number} com.whatsapp")
+        toast("Starting...")
         
+    
 if __name__=="__main__":
     app().run()
