@@ -36,5 +36,5 @@ class app(App):
         number = f"{input_number}"
         os.system(f"am start -a android.intent.action.VIEW -d https://api.whatsapp.com/send?phone={number} com.whatsapp")
         
-if __name__=="__main__":
+if __name__=='__main__':
     app().run()
