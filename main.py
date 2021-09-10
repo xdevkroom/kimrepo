@@ -9,7 +9,7 @@ import os
 class app(App):
    
     def build(self):
-        self.info= """((Welcome to WhatsDirct))\nto use this app :\nadd phon number\nwith country \ncode and without\nsymbole + or 00\nfor example :\nCanadian number\n16049008887"""
+        self.info= """((Welcome to WhatsDirct))\nto use this app :\nadd phon number\nwith country \ncode and without\nsymbols + or 00\nfor example :\nCanadian number\n1XXXXXXXXXXX\nSaudi number:\n966XXXXXXXXX"""
     
         box = FloatLayout()
         leb = Label(text= self.info,pos=(600,1500),size_hint=(0.1,.1))
@@ -27,10 +27,9 @@ class app(App):
       
         return  box
     def click(self,instance):
-       
+        toast("Starting...")
         number = str(self.textinput.text)
         os.system(f"am start -a android.intent.action.VIEW -d https://api.whatsapp.com/send?phone={number} com.whatsapp")
-        toast("Starting...")
         
     
 if __name__=="__main__":
