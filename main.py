@@ -1,7 +1,7 @@
 from kivy.app import App
 from kivy.uix.textinput import TextInput
 from kivy.uix.floatlayout import FloatLayout
-from kivymd.uix.label import Label
+from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.uix.image import Image
 from kivymd.toast import toast
@@ -14,7 +14,7 @@ class app(App):
         box = FloatLayout()
         leb = Label(text= self.info,pos=(600,1500),size_hint=(0.1,.1))
         
-        button = Button(text="Start WhatsApp Chat",size_hint=(1,.08),pos=(1,800))
+        self.button = Button(text="Start WhatsApp Chat",size_hint=(1,.08),pos=(1,800))
         
         #img = Image(source="back.jpg",allow_stretch=True,size_hint=(2,2),pos=(-700,0))
         
@@ -23,12 +23,11 @@ class app(App):
         #box.add_widget(img)
         box.add_widget(leb)
         box.add_widget(self.textinput)
-        box.add_widget(button)
-        button.bind(on_press=self.click)
+        box.add_widget(self.button)
+        #self.button.bind(on_press=self.click)
         
         return  box
     def click(self,instance):
-        pass
         toast("Starting...")
         toast(self.textinput.text)
         input_number = str(self.textinput.text)
