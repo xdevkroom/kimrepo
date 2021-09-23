@@ -1,10 +1,10 @@
 [app]
 
 # (str) Title of your application
-title = NewKivy
+title = KivyMusic
 
 # (str) Package name
-package.name = master.test
+package.name = master.kivymusic
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = dev.kim
@@ -36,7 +36,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,kivymd,python-bidi,arabic_reshaper,pygame,plyer
+requirements = python3,kivy,kivymd,pygame
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
