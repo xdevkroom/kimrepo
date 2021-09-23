@@ -1,7 +1,7 @@
 [app]
 
 # (str) Title of your application
-title = WhatsDirect
+title = NewKivy
 
 # (str) Package name
 package.name = master.test
@@ -36,7 +36,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,kivymd,python-bidi,arabic_reshaper,pygame,gtts,plyer
+requirements = python3,kivy,kivymd,python-bidi,arabic_reshaper,pygame,plyer
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
