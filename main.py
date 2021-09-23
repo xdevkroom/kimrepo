@@ -6,10 +6,10 @@ from kivy.uix.button import Button
 from plyer import gps,vibrator,tts,battery
 from kivymd.toast import toast
 from kivy.network.urlrequest import UrlRequest
-import requests
+#import requests
 import arabic_reshaper
 import bidi.algorithm
-import  webbrowser
+#import  webbrowser
 #from gtts import gTTS as gts
 import pygame
 pygame.init()
