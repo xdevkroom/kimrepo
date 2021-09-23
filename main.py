@@ -6,17 +6,19 @@ from kivy.uix.button import Button
 from plyer import gps,vibrator,tts,battery
 from kivymd.toast import toast
 from kivy.network.urlrequest import UrlRequest
+import requests
 import arabic_reshaper
 import bidi.algorithm
-import webbrowser
-from gtts import gTTS as gts
+import  webbrowser
+#from gtts import gTTS as gts
 import pygame
 pygame.init()
 pygame.mixer.music.load("mono.mp3")
 
 
-g = gts("مرحبا بك في كيفي موبايل لتطوير تطبيقات الاندرويد",lang="ar")
-g.save("mono.mp3")
+
+#g = gts("مرحبا بك في كيفي موبايل لتطوير تطبيقات الاندرويد",lang="ar")
+#g.save("mono.mp3")
 url="http://192.168.43.249/LED=ON"
 a = str(battery.status)
 
@@ -27,14 +29,14 @@ class myapp(App):
     def build(self):
         #webbrowser.open("http://www.google.com")
         
-        self.text = "مرحبا"
+        self.text ="خروج"
         self.shape = arabic_reshaper.reshape(self.text)
         self.bi = bidi.algorithm.get_display(self.shape)
         b1=BoxLayout(orientation="vertical")
             
         self.textin=TextInput(text=self.bi,input_type='number',multiline=False,font_name="arial")
         self.label = Label(text=self.bi,font_name="arial")
-        butn1= Button(text=self.bi,on_press=self.ledon,font_name="arial")
+        butn1= Button(text=self.bi,on_press=exit,font_name="arial")
         butn2= Button(text="Play",on_press=self.xplay)
         butn3= Button(text="Stop",on_press=self.xstop)
         butn4= Button(text="Quick",on_press=self.press)
