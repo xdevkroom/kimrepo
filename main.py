@@ -1,9 +1,12 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
-import pygame
-pygame.init()
-pygame.mixer.music.load("mono.mp3")
+try:
+    import pygame
+    pygame.init()
+    pygame.mixer.music.load("mono.mp3")
+except:
+    pass
 
 class xmusic(App):
     def build(self):
