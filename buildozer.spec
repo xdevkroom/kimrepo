@@ -4,7 +4,7 @@
 title = WhatsDirect
 
 # (str) Package name
-package.name = master.whatsdirect
+package.name = master.test
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = dev.kim
@@ -36,7 +36,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,kivymd
+requirements = python3,kivy,kivymd,requests,bidi.algorithm,arabic_reshaper,pygame,gtts
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
