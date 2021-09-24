@@ -1,12 +1,14 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
-try:
-    import pygame
-    pygame.init()
-    pygame.mixer.music.load("mono.mp3")
-except:
-    pass
+from kivy.core.audio import SoundLoader
+
+
+sound = SoundLoader.load('club.ogg')
+if sound:
+    print("Sound found at %s" % sound.source)
+    print("Sound is %.3f seconds" % sound.length)
+    
 
 class xmusic(App):
     def build(self):
@@ -17,13 +19,12 @@ class xmusic(App):
         b.add_widget(btn2)
         return b
     def xplay(self,instance):
-        if pygame.mixer.music.get_busy():
-            pass
-        else:
-            pygame.mixer.music.play()
+        pass
+        sound.play()
     def xstop(self,instance):
         pass
-        pygame.mixer.music.stop()
+        sound.stop()
+        
     
 if __name__=='__main__':
     xmusic().run()
