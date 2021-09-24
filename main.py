@@ -4,7 +4,7 @@ from kivy.uix.button import Button
 from kivy.core.audio import SoundLoader
 
 
-sound = SoundLoader.load('club.ogg')
+sound = SoundLoader.load('./club.ogg')
 if sound:
     print("Sound found at %s" % sound.source)
     print("Sound is %.3f seconds" % sound.length)
