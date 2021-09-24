@@ -13,7 +13,7 @@ package.domain = dev.kim
 source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
-source.include_exts = py,png,jpg,kv,atlas,mp3,ogg
+source.include_exts = py,png,jpg,kv,atlas,mp3,ogg,ttf
 
 # (list) List of inclusions using pattern matching
 #source.include_patterns = assets/*,back.jpg
@@ -36,7 +36,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,kivymd,pygame
+requirements = python3,kivy,kivymd,python-bidi,arabic_reshaper
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
