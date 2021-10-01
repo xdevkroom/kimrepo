@@ -1,40 +1,22 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.button import Button
-from kivy.core.audio import SoundLoader
-from kivy.uix.label import Label
-from arabic_reshaper import  reshape
-from bidi.algorithm import get_display
+from kivy.uix.anchorlayout import AnchorLayout
+from kivy.uix.relativelayout import RelativeLayout
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.widget import Widget
+from kivy.uix.button import  Button
+from kivy.core.window import Window
 
-
-sound = SoundLoader.load('club.ogg')
-if sound:
-    print("Sound found at %s" % sound.source)
-    print("Sound is %.3f seconds" % sound.length)
-
-
-class xmusic(App):
+class xapp(App):
     def build(self):
-        b = BoxLayout(orientation="vertical")
-        lab = Label(text = self.reshaper("مرحبا بك في بايثون "),font_name="arial")
-        btn = Button(text=self.reshaper("تشغيل"),font_name="arial",on_press=self.xplay)
-        btn2 = Button(text=self.reshaper("ايقاف"),font_name="arial",on_press=self.xstop)
-        b.add_widget(lab)
-        b.add_widget(btn)
-        b.add_widget(btn2)
-        return b
-    def xplay(self,instance):
-        pass
-        sound.play()
-    def xstop(self,instance):
-        pass
-        sound.stop()
-    def reshaper(self,text):
-        x = reshape(text)
-        c =get_display(x)
-        return c
+        x = Window.size[0]
+        y= Window.size[1]
         
-        
-    
-if __name__=='__main__':
-    xmusic().run()
+        box = BoxLayout(pos=(x/2-400,y/2),spacing=10)
+        btn =Button(text="Push",size_hint=(None,None),size=(400,150))
+        btn2= Button(text="Pull",size_hint=(None,None),size=(400,150))
+        box.add_widget(btn)
+        box.add_widget(btn2)
+        return box
+if __name__=="__main__":
+    xapp().run()
