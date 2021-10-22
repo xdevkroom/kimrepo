@@ -1,13 +1,13 @@
 [app]
 
 # (str) Title of your application
-title = KivyMusic
+title = whatsdir
 
 # (str) Package name
-package.name = master.kivymusic
+package.name = master.whatsdir
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = dev.kim
+package.domain = kim.dev
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -28,7 +28,7 @@ source.include_exts = py,png,jpg,kv,atlas,mp3,ogg,ttf
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 0.1
+version = 0.2
 
 # (str) Application versioning (method 2)
 # version.regex = __version__ = ['"](.*)['"]
@@ -46,7 +46,7 @@ requirements = python3,kivy,kivymd,python-bidi,arabic_reshaper
 #presplash.filename = %(source.dir)s/data/presplash.png
 
 # (str) Icon of the application
-#icon.filename = %(source.dir)s/data/icon.png
+icon.filename = xicon.png
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = portrait
