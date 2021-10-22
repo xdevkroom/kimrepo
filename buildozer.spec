@@ -85,7 +85,7 @@ fullscreen = 0
 # see https://lottiefiles.com/ for examples and https://airbnb.design/lottie/
 # for general documentation.
 # Lottie files can be created using various tools, like Adobe After Effect or Synfig.
-android.presplash_lottie = "json/animation.json"
+android.presplash_lottie = "jeson/animation.json"
 
 # (list) Permissions
 android.permissions = VIBRATE,BATTERY_STATS,INTERNET,ACCESS_NETWORK_STATE,INTERACT_ACROSS_USERS_FULL,MODIFY_AUDIO_SETTINGS
