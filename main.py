@@ -1,3 +1,5 @@
+#from android.permissions import request_permissions, Permission
+#request_permissions([Permission.WRITE_EXTERNAL_STORAGE])
 from kivymd .app import MDApp
 from kivy.uix.image import Image
 from kivymd.toast import toast
@@ -11,19 +13,19 @@ from kivymd.uix.screen import MDScreen
 from kivy.uix.scrollview import ScrollView
 from kivymd.uix.list import MDList,OneLineAvatarIconListItem,IconLeftWidget
 from kivymd.utils.fitimage import FitImage
-from kivy.properties import StringProperty
+#from kivy.properties import StringProperty
 from jnius import autoclass,cast
 from arabic_reshaper import reshape as shape
 from bidi.algorithm import get_display as ibidi
-import pysqlite3
+#import pysqlite3
 import webbrowser
 
-db = pysqlite3.connect("kivy.db")
-cr = db.cursor()
-cr.execute("create table if not exists state(id integer , check_state text,ccode text)")
+#db = pysqlite3.connect("kivy.db")
+#cr = db.cursor()
+#cr.execute("create table if not exists state(id integer , check_state text,ccode text)")
 #cr.execute("insert into state(id,check_state,ccode) values(1,'KSA','+966')")
-cr.execute("update state set check_state='' ,ccode='' where id =1")
-db.commit()
+#cr.execute("update state set check_state='' ,ccode='' where id =1")
+#db.commit()
 #db.close()
 
 telegram="http://t.me/king_kim"
@@ -49,7 +51,8 @@ intent.setAction(Intent.ACTION_VIEW)
 
 class Ar_text(TextInput):
    
-    str = StringProperty()
+    #str = StringProperty()
+    str =""
 
     def __init__(self, **kwargs):
         super(Ar_text, self).__init__(**kwargs)
@@ -87,7 +90,7 @@ class WhatsappDirct(MDApp):
  
         
         self.txtin2 = TextInput(size_hint=(.25,.05),hint_text=self.arabic("رمز الدولة"),pos_hint={"center_x":.41,"center_y":.575},input_type="number",font_name="font/arial.ttf")
-        self.txtin2.text=self.getdb()
+        #self.txtin2.text=self.getdb()
         
         self.txtin3 = Ar_text(size_hint=(.9,.15),hint_text=self.arabic("اكتب رسالة "),pos_hint={"center_x":.5,"center_y":.43},input_type="number",font_name="font/arial.ttf")
         
