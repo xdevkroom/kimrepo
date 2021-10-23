@@ -15,15 +15,15 @@ from kivy.properties import StringProperty
 from jnius import autoclass,cast
 from arabic_reshaper import reshape as shape
 from bidi.algorithm import get_display as ibidi
-import sqlite3
+import pysqlite3
 import webbrowser
 
-db = sqlite3.connect("kivy.db")
+db = pysqlite3.connect("kivy.db")
 cr = db.cursor()
 cr.execute("create table if not exists state(id integer , check_state text,ccode text)")
 #cr.execute("insert into state(id,check_state,ccode) values(1,'KSA','+966')")
-#cr.execute("update state set check_state='' ,ccode='' where id =1")
-#db.commit()
+cr.execute("update state set check_state='' ,ccode='' where id =1")
+db.commit()
 #db.close()
 
 telegram="http://t.me/king_kim"
