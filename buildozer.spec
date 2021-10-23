@@ -1,10 +1,10 @@
 [app]
 
 # (str) Title of your application
-title = whatsdir
+title = DirectWhats
 
 # (str) Package name
-package.name = master.whatsdir
+package.name = master.directwhats
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = kim.dev
@@ -46,7 +46,7 @@ requirements = python3,kivy,kivymd,python-bidi,arabic_reshaper
 #presplash.filename = %(source.dir)s/data/presplash.png
 
 # (str) Icon of the application
-icon.filename = xicon.png
+icon.filename = icons/icon.png
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = portrait
@@ -85,7 +85,7 @@ fullscreen = 0
 # see https://lottiefiles.com/ for examples and https://airbnb.design/lottie/
 # for general documentation.
 # Lottie files can be created using various tools, like Adobe After Effect or Synfig.
-android.presplash_lottie = "jeson/animation.json"
+android.presplash_lottie = "boot_animation/animation.json"
 
 # (list) Permissions
 android.permissions = VIBRATE,BATTERY_STATS,INTERNET,ACCESS_NETWORK_STATE,INTERACT_ACROSS_USERS_FULL,MODIFY_AUDIO_SETTINGS
