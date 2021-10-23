@@ -18,7 +18,7 @@ from jnius import autoclass,cast
 from arabic_reshaper import reshape as shape
 from bidi.algorithm import get_display as ibidi
 #import pysqlite3
-import webbrowser
+#import webbrowser
 
 #db = pysqlite3.connect("kivy.db")
 #cr = db.cursor()
@@ -28,7 +28,7 @@ import webbrowser
 #db.commit()
 #db.close()
 
-telegram="http://t.me/king_kim"
+#telegram="http://t.me/king_kim"
 text2="مرحبا بك في تطبيق واتس اب المباشر"
 toolbarx= "واتس اب المباشر"
 code_number=""
