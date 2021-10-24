@@ -16,7 +16,10 @@ from jnius import autoclass,cast
 from arabic_reshaper import reshape as shape
 from bidi.algorithm import get_display as ibidi
 import sqlite3
-import webbrowser
+try:
+    import webbrowser
+except:
+    pass
 
 db = sqlite3.connect("kivy.db")
 cr = db.cursor()
@@ -37,15 +40,17 @@ ccode =["KSA","SYR","LBN","JOR","EGY","YEM","IRQ","QTR","KWT","LBY","TUN","TUR",
 
 icons =["icons/ksa.png","icons/syr.png","icons/lbn.png","icons/jor.png","icons/egy.png","icons/yem.png","icons/irq.png","icons/qtr.png","icons/kwt.png","icons/lby.png","icons/tun.png","icons/tur.png","icons/sdn.png","icons/mar.png","icons/bhr.png","icons/omn.png","icons/som.png","icons/pse.png","icons/mrt.png","icons/alg.png","icons/uk.png","icons/usa.png","icons/can.png","icons/aus.png","icons/ger.png"]
 
-
-PythonActivity = autoclass('org.renpy.android.PythonActivity')
-Intent = autoclass("android.content.Intent")
-Uri = autoclass("android.net.Uri")
-comp = autoclass("android.content.ComponentName")
+try:
+    PythonActivity = autoclass('org.renpy.android.PythonActivity')
+    Intent = autoclass("android.content.Intent")
+    Uri = autoclass("android.net.Uri")
+    comp = autoclass("android.content.ComponentName")
 
 #Create the intent
-intent = Intent()
-intent.setAction(Intent.ACTION_VIEW)
+    intent = Intent()
+    intent.setAction(Intent.ACTION_VIEW)
+except:
+    pass
 
 class Ar_text(TextInput):
    
