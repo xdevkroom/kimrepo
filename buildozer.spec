@@ -36,7 +36,7 @@ version = 0.2
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,kivymd,python-bidi,arabic_reshaper,pyjnius,pysqlite3
+requirements = python3,kivy,kivymd,python-bidi,arabic_reshaper,pyjnius,sqlite3
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -140,6 +140,7 @@ android.api = 28
 
 # (list) Pattern to whitelist for the whole project
 #android.whitelist =
+android.p4a_whitelist = sqlite3/*,lib-dynload/_sqlite3.so
 
 # (str) Path to a custom whitelist file
 #android.whitelist_src =
