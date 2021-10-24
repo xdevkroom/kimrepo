@@ -14,16 +14,16 @@ from kivymd.utils.fitimage import FitImage
 #from jnius import autoclass,cast
 from arabic_reshaper import reshape as shape
 from bidi.algorithm import get_display as ibidi
-import pysqlite3
+#import pysqlite3
 """
 try:
     import webbrowser
 except:
     pass
 """
-db = pysqlite3.connect("kivy.db")
-cr = db.cursor()
-cr.execute("create table if not exists state(id integer , check_state text,ccode text)")
+#db = pysqlite3.connect("kivy.db")
+#cr = db.cursor()
+#cr.execute("create table if not exists state(id integer , check_state text,ccode text)")
 #cr.execute("insert into state(id,check_state,ccode) values(1,'KSA','+966')")
 #cr.execute("update state set check_state='' ,ccode='' where id =1")
 #db.commit()
@@ -91,7 +91,7 @@ class WhatsappDirct(MDApp):
  
         
         self.txtin2 = TextInput(size_hint=(.25,.05),hint_text=self.arabic("رمز الدولة"),pos_hint={"center_x":.41,"center_y":.575},input_type="number",font_name="font/arial.ttf")
-        self.txtin2.text=self.getdb()
+        #self.txtin2.text=self.getdb()
         
         self.txtin3 = Ar_text(size_hint=(.9,.15),hint_text=self.arabic("اكتب رسالة "),pos_hint={"center_x":.5,"center_y":.43},input_type="number",font_name="font/arial.ttf")
         
@@ -133,14 +133,15 @@ class WhatsappDirct(MDApp):
            arabitext = ibidi(text)
            return  arabitext
            
-    def updatedb(self,check_state,ccode):
-           cr.execute(f"update state set check_state='{check_state}' ,ccode='{ccode}' where id =1")
-           db.commit()
+    #def updatedb(self,check_state,ccode):
+           #cr.execute(f"update state set check_state='{check_state}' ,ccode='{ccode}' where id =1")
+           #db.commit()
            
     def getdb(self):
-           cr.execute("select ccode from state")
-           getdata= cr.fetchone()[0]
-           return  getdata
+           pass
+           #cr.execute("select ccode from state")
+           #getdata= cr.fetchone()[0]
+           #return  getdata
            
     def listitems(self,instance):
             self.mdlis=MDList()
@@ -318,6 +319,6 @@ class WhatsappDirct(MDApp):
                        
 if __name__=="__main__":
         WhatsappDirct().run()
-        db.close()
+        #db.close()
         
         
