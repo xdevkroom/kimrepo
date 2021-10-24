@@ -11,16 +11,16 @@ from kivymd.uix.screen import MDScreen
 from kivy.uix.scrollview import ScrollView
 from kivymd.uix.list import MDList,OneLineAvatarIconListItem,IconLeftWidget
 from kivymd.utils.fitimage import FitImage
-#from kivy.properties import StringProperty
 #from jnius import autoclass,cast
 from arabic_reshaper import reshape as shape
 from bidi.algorithm import get_display as ibidi
 import pysqlite3
+"""
 try:
     import webbrowser
 except:
     pass
-
+"""
 db = pysqlite3.connect("kivy.db")
 cr = db.cursor()
 cr.execute("create table if not exists state(id integer , check_state text,ccode text)")
@@ -54,16 +54,13 @@ except:
 """
 
 class Ar_text(TextInput):
-   
-    #str = StringProperty()
+    
     str =""
-
     def __init__(self, **kwargs):
         super(Ar_text, self).__init__(**kwargs)
         
 
     def insert_text(self, substring, from_undo=False):
-        
         self.str = self.str+substring
         self.text = ibidi(shape(self.str))
         substring = ""
@@ -98,7 +95,7 @@ class WhatsappDirct(MDApp):
         
         self.txtin3 = Ar_text(size_hint=(.9,.15),hint_text=self.arabic("اكتب رسالة "),pos_hint={"center_x":.5,"center_y":.43},input_type="number",font_name="font/arial.ttf")
         
-        btn1= MDFillRoundFlatButton(text=self.arabic(" ابدأ الدردشة"),text_color=(1,1,1,1),pos_hint={"center_x":.5,"center_y":.27},font_name="font/arial.ttf",on_release=lambda c :print("pressed"))
+        btn1= MDFillRoundFlatButton(text=self.arabic(" ابدأ الدردشة"),text_color=(1,1,1,1),pos_hint={"center_x":.5,"center_y":.27},font_name="font/arial.ttf",on_release=lambda c :print("intent_func"))
         
         btn2=MDFillRoundFlatButton(text=self.arabic("حول التطبيق"),font_name="font/arial.ttf",text_color=(0,0,1,2),pos_hint={"center_x":.5,"center_y":.2},on_release=self.dialog_show)
         
@@ -178,7 +175,7 @@ class WhatsappDirct(MDApp):
             ,font_name="font/arial.ttf",on_release=self.close_dialog),
             MDRaisedButton(
                 text=btn_chat
-            ,font_name="font/arial.ttf",on_release=self.web)],auto_dismiss=False) 
+            ,font_name="font/arial.ttf",on_release=lambda c :print("self.web"))],auto_dismiss=False) 
         self.dialog.text=(f"[font=font/arial.ttf]{msg}[/font]")
         
         
@@ -187,9 +184,8 @@ class WhatsappDirct(MDApp):
     def close_dialog(self,instance):
       self.dialog.dismiss(force=False)
       
-    def web(self,instance):
-        x = webbrowser.open(telegram)
-        pass
+    #def web(self,instance):
+        #x = webbrowser.open(telegram)
         
     def switch(self,x):
             if x=="KSA":
