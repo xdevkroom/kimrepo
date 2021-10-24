@@ -88,7 +88,7 @@ fullscreen = 0
 android.presplash_lottie = "boot_animation/animation.json"
 
 # (list) Permissions
-android.permissions = VIBRATE,BATTERY_STATS,INTERNET,ACCESS_NETWORK_STATE,INTERACT_ACROSS_USERS_FULL,MODIFY_AUDIO_SETTINGS
+android.permissions = VIBRATE,BATTERY_STATS,INTERNET,ACCESS_NETWORK_STATE,INTERACT_ACROSS_USERS_FULL,MODIFY_AUDIO_SETTINGS,READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE     
 
 
 # (list) features (adds uses-feature -tags to manifest)
