@@ -1,5 +1,3 @@
-#from android.permissions import request_permissions, Permission
-#request_permissions([Permission.WRITE_EXTERNAL_STORAGE])
 from kivymd .app import MDApp
 from kivy.uix.image import Image
 from kivymd.toast import toast
@@ -316,6 +314,6 @@ class WhatsappDirct(MDApp):
                        
 if __name__=="__main__":
         WhatsappDirct().run()
-        db.close()
+        #db.close()
         
         
