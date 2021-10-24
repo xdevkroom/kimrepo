@@ -15,18 +15,18 @@ from kivymd.utils.fitimage import FitImage
 from jnius import autoclass,cast
 from arabic_reshaper import reshape as shape
 from bidi.algorithm import get_display as ibidi
-import pysqlite3
-#import webbrowser
+import sqlite3
+import webbrowser
 
-db = pysqlite3.connect("kivy.db")
+db = sqlite3.connect("kivy.db")
 cr = db.cursor()
-#cr.execute("create table if not exists state(id integer , check_state text,ccode text)")
+cr.execute("create table if not exists state(id integer , check_state text,ccode text)")
 #cr.execute("insert into state(id,check_state,ccode) values(1,'KSA','+966')")
 #cr.execute("update state set check_state='' ,ccode='' where id =1")
 #db.commit()
 #db.close()
 
-#telegram="http://t.me/king_kim"
+telegram="http://t.me/king_kim"
 text2="مرحبا بك في تطبيق واتس اب المباشر"
 toolbarx= "واتس اب المباشر"
 code_number=""
@@ -88,14 +88,14 @@ class WhatsappDirct(MDApp):
  
         
         self.txtin2 = TextInput(size_hint=(.25,.05),hint_text=self.arabic("رمز الدولة"),pos_hint={"center_x":.41,"center_y":.575},input_type="number",font_name="font/arial.ttf")
-        #self.txtin2.text=self.getdb()
+        self.txtin2.text=self.getdb()
         
         self.txtin3 = Ar_text(size_hint=(.9,.15),hint_text=self.arabic("اكتب رسالة "),pos_hint={"center_x":.5,"center_y":.43},input_type="number",font_name="font/arial.ttf")
         
         btn1= MDFillRoundFlatButton(text=self.arabic(" ابدأ الدردشة"),text_color=(1,1,1,1),pos_hint={"center_x":.5,"center_y":.27},font_name="font/arial.ttf",on_release=self.intent_func)
         
         btn2=MDFillRoundFlatButton(text=self.arabic("حول التطبيق"),font_name="font/arial.ttf",text_color=(0,0,1,2),pos_hint={"center_x":.5,"center_y":.2},on_release=self.dialog_show)
-        #btn2.md_bg_color=(0,1,0,1)
+        
        
         btn3= MDFillRoundFlatButton(text=self.arabic("اختر الرمز"),font_name="font/arial.ttf",text_color=(1,1,1,1),size_hint=(.255,.05),pos_hint={"center_x":.140,"center_y":.575},on_release=self.listitems)
        
@@ -182,6 +182,7 @@ class WhatsappDirct(MDApp):
       
     def web(self,instance):
         x = webbrowser.open(telegram)
+        pass
         
     def switch(self,x):
             if x=="KSA":
