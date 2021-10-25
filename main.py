@@ -74,12 +74,12 @@ class Ar_text(TextInput):
 class WhatsappDirct(MDApp):
     def build(self):
         self.box = MDScreen()
-        ancher = AnchorLayout(anchor_x="center",anchor_y="top")
-        mdtoolbar= MDToolbar(title=self.arabic("واتس اب المباشر"),type="top")
-        mdtoolbar.ids.label_title.font_name = "font/mohanad.ttf"
-        mdtoolbar.elevation=12
+        #ancher = AnchorLayout(anchor_x="center",anchor_y="top")
+        #mdtoolbar= MDToolbar(title=self.arabic("واتس اب المباشر"),type="top")
+        #mdtoolbar.ids.label_title.font_name = "font/mohanad.ttf"
+        #mdtoolbar.elevation=12
         
-        ancher.add_widget(mdtoolbar)
+        #ancher.add_widget(mdtoolbar)
         #img = FitImage(source="Back.jpg")
         img2= Image(source="blue.png",pos_hint={"center_x":.5,"center_y":.82},size_hint=(.3,.3))
         #self.theme_cls.theme_style="Dark"
@@ -103,7 +103,7 @@ class WhatsappDirct(MDApp):
         btn3= MDFillRoundFlatButton(text=self.arabic("اختر الرمز"),font_name="font/arial.ttf",text_color=(1,1,1,1),size_hint=(.255,.05),pos_hint={"center_x":.140,"center_y":.575},on_release=self.listitems)
        
         #self.box.add_widget(img)
-        self.box.add_widget(ancher)
+        #self.box.add_widget(ancher)
         self.box.add_widget(img2)
         self.box.add_widget(leb)
         self.box.add_widget(self.txtin1)
