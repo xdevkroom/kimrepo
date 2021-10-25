@@ -65,8 +65,10 @@ orientation = portrait
 osx.python_version = 3
 
 # Kivy version to use
-#osx.kivy_version = 1.11.1
+osx.kivy_version = 1.11.1
 #osx.plyer_version = 2.0.0
+#Kivymf version to use
+osx.kivymd_version = 0.104.1
 #
 # Android specific
 #
@@ -88,7 +90,7 @@ fullscreen = 0
 android.presplash_lottie = "boot_animation/animation.json"
 
 # (list) Permissions
-android.permissions = VIBRATE,BATTERY_STATS,INTERNET,ACCESS_NETWORK_STATE,INTERACT_ACROSS_USERS_FULL,MODIFY_AUDIO_SETTINGS,READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE     
+android.permissions = VIBRATE,BATTERY_STATS,INTERNET,ACCESS_NETWORK_STATE,INTERACT_ACROSS_USERS_FULL,MODIFY_AUDIO_SETTINGS   
 
 
 # (list) features (adds uses-feature -tags to manifest)
