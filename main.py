@@ -15,7 +15,7 @@ from jnius import autoclass,cast
 from arabic_reshaper import reshape as shape
 from bidi.algorithm import get_display as ibidi
 import pysqlite3
-import webbrowser
+#import webbrowser
 
 db = pysqlite3.connect("kivy.db")
 cr = db.cursor()
@@ -85,7 +85,7 @@ class WhatsappDirct(MDApp):
  
         
         self.txtin2 = TextInput(size_hint=(.25,.05),hint_text=self.arabic("رمز الدولة"),pos_hint={"center_x":.41,"center_y":.575},input_type="number",font_name="font/arial.ttf")
-        self.txtin2.text=self.getdb()
+        #self.txtin2.text=self.getdb()
         
         self.txtin3 = Ar_text(size_hint=(.9,.15),hint_text=self.arabic("اكتب رسالة "),pos_hint={"center_x":.5,"center_y":.43},input_type="number",font_name="font/arial.ttf")
         
@@ -172,7 +172,7 @@ class WhatsappDirct(MDApp):
             ,font_name="font/arial.ttf",on_release=self.close_dialog),
             MDRaisedButton(
                 text=btn_chat
-            ,font_name="font/arial.ttf",on_release=self.web)],auto_dismiss=False) 
+            ,font_name="font/arial.ttf",on_release=lambda c:c)],auto_dismiss=False) 
         self.dialog.text=(f"[font=font/arial.ttf]{msg}[/font]")
         
         self.dialog.open()
@@ -182,8 +182,8 @@ class WhatsappDirct(MDApp):
     def close_dialog(self,instance):
       self.dialog.dismiss(force=False)
       
-    def web(self,instance):
-        x = webbrowser.open(telegram)
+    #def web(self,instance):
+        #x = webbrowser.open(telegram)
         
     def switch(self,x):
             if x=="KSA":
