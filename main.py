@@ -11,10 +11,10 @@ from kivymd.uix.screen import MDScreen
 from kivy.uix.scrollview import ScrollView
 from kivymd.uix.list import MDList,OneLineAvatarIconListItem,IconLeftWidget
 from kivymd.utils.fitimage import FitImage
-from jnius import autoclass,cast
+#from jnius import autoclass,cast
 from arabic_reshaper import reshape as shape
 from bidi.algorithm import get_display as ibidi
-import pysqlite3
+import sqlite3
 #import webbrowser
 
 #db = pysqlite3.connect("kivy.db")
@@ -36,7 +36,7 @@ ccode =["KSA","SYR","LBN","JOR","EGY","YEM","IRQ","QTR","KWT","LBY","TUN","TUR",
 
 icons =["icons/ksa.png","icons/syr.png","icons/lbn.png","icons/jor.png","icons/egy.png","icons/yem.png","icons/irq.png","icons/qtr.png","icons/kwt.png","icons/lby.png","icons/tun.png","icons/tur.png","icons/sdn.png","icons/mar.png","icons/bhr.png","icons/omn.png","icons/som.png","icons/pse.png","icons/mrt.png","icons/alg.png","icons/uk.png","icons/usa.png","icons/can.png","icons/aus.png","icons/ger.png"]
 
-
+"""
 PythonActivity = autoclass('org.renpy.android.PythonActivity')
 Intent = autoclass("android.content.Intent")
 Uri = autoclass("android.net.Uri")
@@ -45,6 +45,7 @@ comp = autoclass("android.content.ComponentName")
 #Create the intent
 intent = Intent()
 intent.setAction(Intent.ACTION_VIEW)
+"""
 
 
 class Ar_text(TextInput):
@@ -89,7 +90,7 @@ class WhatsappDirct(MDApp):
         
         self.txtin3 = Ar_text(size_hint=(.9,.15),hint_text=self.arabic("اكتب رسالة "),pos_hint={"center_x":.5,"center_y":.43},input_type="number",font_name="font/arial.ttf")
         
-        btn1= MDFillRoundFlatButton(text=self.arabic(" ابدأ الدردشة"),text_color=(1,1,1,1),pos_hint={"center_x":.5,"center_y":.27},font_name="font/arial.ttf",on_release=self.intent_func)
+        btn1= MDFillRoundFlatButton(text=self.arabic(" ابدأ الدردشة"),text_color=(1,1,1,1),pos_hint={"center_x":.5,"center_y":.27},font_name="font/arial.ttf",on_release=lambda c:print("self.intent_func"))
         
         btn2=MDFillRoundFlatButton(text=self.arabic("حول التطبيق"),font_name="font/arial.ttf",text_color=(0,0,1,2),pos_hint={"center_x":.5,"center_y":.2},on_release=lambda c :print("self.dialog_show"))
         
@@ -108,6 +109,7 @@ class WhatsappDirct(MDApp):
         self.box.add_widget(btn3)
         
         return  self.box
+    """
         
     def intent_func(self,instance):
             code_number = self.txtin2.text
@@ -120,6 +122,7 @@ class WhatsappDirct(MDApp):
             currentActivity.startActivity(intent)
             x = self.txtin1.text
             toast(x)
+    """
             
     def arabic(self,value):
            text = shape(value)
