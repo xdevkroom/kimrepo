@@ -97,7 +97,7 @@ class WhatsappDirct(MDApp):
         
         btn1= MDFillRoundFlatButton(text=self.arabic(" ابدأ الدردشة"),text_color=(1,1,1,1),pos_hint={"center_x":.5,"center_y":.27},font_name="font/arial.ttf",on_release=lambda c :print("intent_func"))
         
-        btn2=MDFillRoundFlatButton(text=self.arabic("حول التطبيق"),font_name="font/arial.ttf",text_color=(0,0,1,2),pos_hint={"center_x":.5,"center_y":.2},on_release=self.dialog_show)
+        btn2=MDFillRoundFlatButton(text=self.arabic("حول التطبيق"),font_name="font/arial.ttf",text_color=(0,0,1,2),pos_hint={"center_x":.5,"center_y":.2},on_release=lambda c:print("dialog_show"))
         
        
         btn3= MDFillRoundFlatButton(text=self.arabic("اختر الرمز"),font_name="font/arial.ttf",text_color=(1,1,1,1),size_hint=(.255,.05),pos_hint={"center_x":.140,"center_y":.575},on_release=self.listitems)
@@ -157,17 +157,20 @@ class WhatsappDirct(MDApp):
             self.box.add_widget(self.scrol)
             
     def dialog_show(self,instance):
+        pass
+        
         #self.theme_cls.theme_style="Light"
-        titl = self.arabic("حول التطبيق!")
-        msg = self.arabic(""" 
-        مرحبا بك في تطبيق
-  واتس اب المباشر
-        تم بناء هذا
-        التطبيق بلغة بايثون
-        اطار عمل kivymd
-        يمكنك ارسال تعليق للمطور
-        عبر منصة تلغرام 
+        #titl = self.arabic("حول التطبيق!")
+        #msg = self.arabic(""" 
+#        مرحبا بك في تطبيق
+#  واتس اب المباشر
+#        تم بناء هذا
+#        التطبيق بلغة بايثون
+ #       اطار عمل kivymd
+#        يمكنك ارسال تعليق للمطور
+#        عبر منصة تلغرام 
         """)
+        """
         btn_chat=self.arabic("مراسلة")
         btn_cancel=self.arabic("الغاء")
         self.dialog= MDDialog(title=f"[font=font/arial.ttf]{titl}[/font]",buttons=[
@@ -179,11 +182,13 @@ class WhatsappDirct(MDApp):
             ,font_name="font/arial.ttf",on_release=lambda c :print("self.web"))],auto_dismiss=False) 
         self.dialog.text=(f"[font=font/arial.ttf]{msg}[/font]")
         
-        
         self.dialog.open()
+        
+        
         
     def close_dialog(self,instance):
       self.dialog.dismiss(force=False)
+      pass
       
     #def web(self,instance):
         #x = webbrowser.open(telegram)
