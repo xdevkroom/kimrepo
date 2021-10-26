@@ -14,12 +14,12 @@ from kivymd.uix.list import MDList,OneLineAvatarIconListItem,IconLeftWidget
 #from jnius import autoclass,cast
 from arabic_reshaper import reshape as shape
 from bidi.algorithm import get_display as ibidi
-#import pysqlite3
+import pysqlite3
 import webbrowser
 
-#db = pysqlite3.connect("kivy.db")
-#cr = db.cursor()
-#cr.execute("create table if not exists state(id integer , check_state text,ccode text)")
+db = pysqlite3.connect("kivy.db")
+cr = db.cursor()
+cr.execute("create table if not exists state(id integer , check_state text,ccode text)")
 #cr.execute("insert into state(id,check_state,ccode) values(1,'KSA','+966')")
 #cr.execute("update state set check_state='' ,ccode='' where id =1")
 #db.commit()
@@ -85,7 +85,7 @@ class WhatsappDirct(MDApp):
  
         
         self.txtin2 = TextInput(size_hint=(.25,.05),hint_text=self.arabic("رمز الدولة"),pos_hint={"center_x":.41,"center_y":.575},input_type="number",font_name="font/arial.ttf")
-        #self.txtin2.text=self.getdb()
+        self.txtin2.text=self.getdb()
         
         self.txtin3 = Ar_text(size_hint=(.9,.15),hint_text=self.arabic("اكتب رسالة "),pos_hint={"center_x":.5,"center_y":.43},input_type="number",font_name="font/arial.ttf")
         
@@ -127,7 +127,7 @@ class WhatsappDirct(MDApp):
            text = shape(value)
            arabitext = ibidi(text)
            return  arabitext
-    """   
+     
     def updatedb(self,check_state,ccode):
            cr.execute(f"update state set check_state='{check_state}' ,ccode='{ccode}' where id =1")
            db.commit()
@@ -137,7 +137,7 @@ class WhatsappDirct(MDApp):
            cr.execute("select ccode from state")
            getdata= cr.fetchone()[0]
            return  getdata
-    """      
+          
     def listitems(self,instance):
             self.mdlis=MDList()
             self.mdlis.md_bg_color=self.theme_cls.primary_dark
@@ -195,132 +195,132 @@ class WhatsappDirct(MDApp):
                 toast("تم ضبط مفتاح السعودية ")
                 ksa = self.txtin2.text ="+966"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,ksa)
+                self.updatedb(x,ksa)
             elif x=="SYR":
                 toast("تم ضبط مفتاح سورية")
                 syr = self.txtin2.text ="+963"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,syr)
+                self.updatedb(x,syr)
             elif x=="LBN":
                 toast("تم ضبط مفتاح لبنان")
                 lbn = self.txtin2.text ="+961"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,lbn)
+                self.updatedb(x,lbn)
             elif x=="JOR":
                 toast("تم ضبط مفتاح الاردن")
                 jor = self.txtin2.text ="+962"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,jor)
+                self.updatedb(x,jor)
             elif x=="EGY":
                 toast("تم ضبط مفتاح مصر")
                 egy = self.txtin2.text ="+20"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,egy)
+                self.updatedb(x,egy)
             elif x=="YEM":
                 toast("تم ضبط مفتاح اليمن")
                 yem = self.txtin2.text ="+967"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,yem)
+                self.updatedb(x,yem)
             elif x=="IRQ":
                 toast("تم ضبط مفتاح العراق")
                 irq = self.txtin2.text ="+964"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,irq)
+                self.updatedb(x,irq)
             elif x=="QTR":
                 toast("تم ضبط مفتاح قطر")
                 qtr = self.txtin2.text ="+974"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,qtr)
+                self.updatedb(x,qtr)
             elif x=="KWT":
                 toast("تم ضبط مفتاح الكويت")
                 kwt =self.txtin2.text ="+965"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,kwt)
+                self.updatedb(x,kwt)
             elif x=="LBY":
                 toast("تم ضبط مفتاح ليبيا")
                 lby=self.txtin2.text ="+218"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,lby)
+                self.updatedb(x,lby)
             elif x=="TUN":
                 toast("تم ضبط مفتاح تونس")
                 tun =self.txtin2.text ="+216"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,tun)
+                self.updatedb(x,tun)
             elif x=="TUR":
                 toast("تم ضبط مفتاح تركيا")
                 tur=self.txtin2.text ="+90"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,tur)
+                self.updatedb(x,tur)
             elif x=="SDN":
                 toast("تم ضبط مفتاح السودان")
                 sdn =self.txtin2.text ="+249"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,sdn)
+                self.updatedb(x,sdn)
             elif x=="MAR":
                 toast("تم ضبط مفتاح المغرب")
                 mar=self.txtin2.text ="+212"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,mar)
+                self.updatedb(x,mar)
             elif x=="BHR":
                 toast("تم ضبط مفتاح البحرين")
                 bhr=self.txtin2.text ="+973"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,bhr)
+                self.updatedb(x,bhr)
             elif x=="OMN":
                 toast("تم ضبط مفتاح عمان")
                 omn=self.txtin2.text ="+968"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,omn)
+                self.updatedb(x,omn)
             elif x=="SOM":
                 toast("تم ضبط مفتاح الصومال")
                 som=self.txtin2.text ="+252"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,som)
+                self.updatedb(x,som)
             elif x=="PSE":
                 toast("تم ضبط مفتاح فلسطين")
                 pse=self.txtin2.text ="+970"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,pse)
+                self.updatedb(x,pse)
             elif x=="MRT":
                 toast("تم ضبط مفتاح موريتانبا")
                 mrt=self.txtin2.text ="+222"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,mrt)
+                self.updatedb(x,mrt)
             elif x=="ALG":
                 toast("تم ضبط مفتاح الجزائر")
                 alg=self.txtin2.text ="+213"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,alg)
+                self.updatedb(x,alg)
             elif x=="UK":
                 toast("تم ضبط مفتاح بريطانيا")
                 uk=self.txtin2.text ="+44"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,uk)
+                self.updatedb(x,uk)
             elif x=="USA":
                 toast("تم ضبط مفتاح امريكا")
                 usa=self.txtin2.text ="+1"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,usa)
+                self.updatedb(x,usa)
             elif x=="CAN":
                 toast("تم ضبط مفتاح كندا")
                 can =self.txtin2.text ="+1"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,can)
+                self.updatedb(x,can)
             elif x=="AUS":
                 toast("تم ضبط مفتاح استراليا")
                 aus=self.txtin2.text ="+61"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,aus)
+                self.updatedb(x,aus)
             elif x=="GER":
                 toast("تم ضبط مفتاح المانيا")
                 ger=self.txtin2.text ="+49"
                 self.box.remove_widget(self.scrol)
-                #self.updatedb(x,ger)
+                self.updatedb(x,ger)
         
                 
                        
 if __name__=="__main__":
         WhatsappDirct().run()
-        #db.close()
+        db.close()
         
         
