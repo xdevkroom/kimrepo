@@ -14,10 +14,10 @@ from kivymd.uix.list import MDList,OneLineAvatarIconListItem,IconLeftWidget
 #from jnius import autoclass,cast
 from arabic_reshaper import reshape as shape
 from bidi.algorithm import get_display as ibidi
-import pysqlite3
+import sqlite3
 import webbrowser
 
-db = pysqlite3.connect("kivy.db")
+db = sqlite3.connect("kivy.db")
 cr = db.cursor()
 cr.execute("create table if not exists state(id integer , check_state text,ccode text)")
 #cr.execute("insert into state(id,check_state,ccode) values(1,'KSA','+966')")
