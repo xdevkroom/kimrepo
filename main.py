@@ -73,11 +73,13 @@ class WhatsappDirct(MDApp):
         mdtoolbar.ids.label_title.font_name = "font/mohanad.ttf"
         mdtoolbar.elevation=12
         
+        imgancher = AnchorLayout(anchor_x="center",anchor_y="center")
+        
         ancher.add_widget(mdtoolbar)
         img = Image(source="Back.jpg")
-        img.allow_stretch=True
         img.size_hint=(1,1.2)
         img.pos_hint={"center_x":.5,"center_y":.5}
+        imgancher.add_widget(img)
         
         
         img2= Image(source="blue.png",pos_hint={"center_x":.5,"center_y":.82},size_hint=(.3,.3))
@@ -101,7 +103,7 @@ class WhatsappDirct(MDApp):
        
         btn3= MDFillRoundFlatButton(text=self.arabic("اختر الرمز"),font_name="font/arial.ttf",text_color=(1,1,1,1),size_hint=(.255,.05),pos_hint={"center_x":.140,"center_y":.575},on_release=self.listitems)
        
-        self.box.add_widget(img)
+        self.box.add_widget(imgancher)
         self.box.add_widget(ancher)
         self.box.add_widget(img2)
         self.box.add_widget(leb)
