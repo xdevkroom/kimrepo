@@ -36,7 +36,7 @@ version = 0.2
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy==1.11.1,kivymd==0.104.1,python-bidi,arabic_reshaper,pyjnius
+requirements = python3,kivy,kivymd,python-bidi,arabic_reshaper,pyjnius
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -65,10 +65,10 @@ orientation = portrait
 osx.python_version = 3
 
 # Kivy version to use
-osx.kivy_version = 1.11.1
+#osx.kivy_version = 1.11.1
 #osx.plyer_version = 2.0.0
 #Kivymf version to use
-osx.kivymd_version = 0.104.1
+#osx.kivymd_version = 0.104.1
 #
 # Android specific
 #
