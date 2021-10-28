@@ -76,9 +76,9 @@ class WhatsappDirct(MDApp):
         imgancher = AnchorLayout(anchor_x="center",anchor_y="center")
         
         ancher.add_widget(mdtoolbar)
-        img = Image(source="Back.jpg")
-        img.size_hint=(1,1.2)
-        img.pos_hint={"center_x":.5,"center_y":.5}
+        img = Image(source="Back.png")
+        #img.size_hint=(1,1.2)
+        #img.pos_hint={"center_x":.5,"center_y":.5}
         imgancher.add_widget(img)
         
         
