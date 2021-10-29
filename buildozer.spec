@@ -1,7 +1,7 @@
 [app]
 
 # (str) Title of your application
-title = DirectWhats
+title = واتسب المباشر
 
 # (str) Package name
 package.name = master.directwhats
@@ -28,7 +28,7 @@ source.include_exts = py,png,jpg,kv,atlas,mp3,ogg,ttf,db
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 0.2
+version = 0.3
 
 # (str) Application versioning (method 2)
 # version.regex = __version__ = ['"](.*)['"]
