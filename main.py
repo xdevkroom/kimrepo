@@ -66,19 +66,20 @@ class Ar_text(TextInput):
         self.str = self.str[0:len(self.str)-1]
         self.text = ibidi(shape(self.str))
 
+
 class WhatsappDirct(MDApp):
     def build(self):
-        self.box = RelativeLayout()
+        self.box = MDScreen()
         ancher = AnchorLayout(anchor_x="center",anchor_y="top")
         mdtoolbar= MDToolbar(title=self.arabic("واتس اب المباشر"),type="top")
         mdtoolbar.ids.label_title.font_name = "font/mohanad.ttf"
         mdtoolbar.elevation=12
-       
-        
         ancher.add_widget(mdtoolbar)
-        img = Image(source="bground.png")
         
         
+        img = Image(source="bground.jpg")
+        img.size_hint=(1.2,1.3)
+        img.pos_hint={"center_x":.5,"center_y":.5}
         img2= Image(source="blue.png",pos_hint={"center_x":.5,"center_y":.82},size_hint=(.3,.3))
         
         #self.theme_cls.theme_style="Dark"
