@@ -3,6 +3,7 @@ from kivymd.toast import toast
 from kivymd.uix.textfield import TextInput
 from kivymd.uix.toolbar import MDToolbar
 from kivy.uix.anchorlayout import AnchorLayout
+from kivy.uix.relativelayout import  RelativeLayout
 from kivy.uix.image import Image
 from kivymd .uix.label import Label
 from kivymd.uix.button import MDFillRoundFlatButton,MDRaisedButton,MDFlatButton
@@ -67,23 +68,20 @@ class Ar_text(TextInput):
 
 class WhatsappDirct(MDApp):
     def build(self):
-        self.box = MDScreen()
+        self.box = RelativeLayout()
         ancher = AnchorLayout(anchor_x="center",anchor_y="top")
         mdtoolbar= MDToolbar(title=self.arabic("واتس اب المباشر"),type="top")
         mdtoolbar.ids.label_title.font_name = "font/mohanad.ttf"
         mdtoolbar.elevation=12
-        
-        imgancher = AnchorLayout(anchor_x="center",anchor_y="center")
+       
         
         ancher.add_widget(mdtoolbar)
         img = Image(source="Back.png")
-        #img.size_hint=(1,1.2)
-        #img.pos_hint={"center_x":.5,"center_y":.5}
-        imgancher.add_widget(img)
         
         
         img2= Image(source="blue.png",pos_hint={"center_x":.5,"center_y":.82},size_hint=(.3,.3))
-        self.theme_cls.theme_style="Dark"
+        
+        #self.theme_cls.theme_style="Dark"
         
         leb= Label(text=self.arabic(text2),font_name="font/arial.ttf",pos_hint={"center_x":.5,"center_y":.7},font_size="13sp")
         
@@ -103,7 +101,7 @@ class WhatsappDirct(MDApp):
        
         btn3= MDFillRoundFlatButton(text=self.arabic("اختر الرمز"),font_name="font/arial.ttf",text_color=(1,1,1,1),size_hint=(.255,.05),pos_hint={"center_x":.140,"center_y":.575},on_release=self.listitems)
        
-        self.box.add_widget(imgancher)
+        self.box.add_widget(img)
         self.box.add_widget(ancher)
         self.box.add_widget(img2)
         self.box.add_widget(leb)
@@ -160,7 +158,6 @@ class WhatsappDirct(MDApp):
             
    
     def dialog_show(self,instance):
-        pass
         
         #self.theme_cls.theme_style="Light"
         titl = self.arabic("حول التطبيق!")
