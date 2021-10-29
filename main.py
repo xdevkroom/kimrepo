@@ -1,4 +1,6 @@
 from kivymd .app import MDApp
+from kivy.core.window import Window
+from kivy.clock import Clock
 from kivymd.toast import toast
 from kivymd.uix.textfield import TextInput
 from kivymd.uix.toolbar import MDToolbar
@@ -11,7 +13,6 @@ from kivymd.uix.dialog import MDDialog
 from kivymd.uix.screen import MDScreen
 from kivy.uix.scrollview import ScrollView
 from kivymd.uix.list import MDList,OneLineAvatarIconListItem,IconLeftWidget
-#from kivymd.utils.fitimage import FitImage
 from jnius import autoclass,cast
 from arabic_reshaper import reshape as shape
 from bidi.algorithm import get_display as ibidi
@@ -32,6 +33,7 @@ toolbarx= "واتس اب المباشر"
 code_number=""
 phone_number=""
 message=""
+
 
 ccode =["KSA","SYR","LBN","JOR","EGY","YEM","IRQ","QTR","KWT","LBY","TUN","TUR","SDN","MAR","BHR","OMN","SOM","PSE","MRT","ALG","UK","USA","CAN","AUS","GER"]
 
@@ -69,6 +71,7 @@ class Ar_text(TextInput):
 
 class WhatsappDirct(MDApp):
     def build(self):
+        self.click_counter = 0
         self.box = MDScreen()
         ancher = AnchorLayout(anchor_x="center",anchor_y="top")
         mdtoolbar= MDToolbar(title=self.arabic("واتس اب المباشر"),type="top")
@@ -112,6 +115,7 @@ class WhatsappDirct(MDApp):
         self.box.add_widget(btn1)
         self.box.add_widget(btn2)
         self.box.add_widget(btn3)
+        Clock.schedule_once(lambda x: Window.bind(on_keyboard=self.hook_keyboard))
         
         return  self.box
    
@@ -160,7 +164,6 @@ class WhatsappDirct(MDApp):
    
     def dialog_show(self,instance):
         
-        #self.theme_cls.theme_style="Light"
         titl = self.arabic("حول التطبيق!")
        
         msg = self.arabic("""
@@ -194,6 +197,18 @@ class WhatsappDirct(MDApp):
       
     def web(self,instance):
         x = webbrowser.open(telegram)
+        
+    def hook_keyboard(self, window, key, *largs):
+       
+        if key == 27:
+            toast("اضغط مرة اخرى للخروج")
+            self.click_counter+=1
+            print(self.click_counter)
+            if self.click_counter==2:
+            
+                MDApp().stop()
+       
+        return True
         
     def switch(self,x):
             if x=="KSA":
