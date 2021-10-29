@@ -76,10 +76,10 @@ class WhatsappDirct(MDApp):
        
         
         ancher.add_widget(mdtoolbar)
-        img = Image(source="Back.png")
+        img = Image(source="bground.png")
         
         
-        #img2= Image(source="blue.png",pos_hint={"center_x":.5,"center_y":.82},size_hint=(.3,.3))
+        img2= Image(source="blue.png",pos_hint={"center_x":.5,"center_y":.82},size_hint=(.3,.3))
         
         #self.theme_cls.theme_style="Dark"
         
@@ -103,7 +103,7 @@ class WhatsappDirct(MDApp):
        
         self.box.add_widget(img)
         self.box.add_widget(ancher)
-        #self.box.add_widget(img2)
+        self.box.add_widget(img2)
         self.box.add_widget(leb)
         self.box.add_widget(self.txtin1)
         self.box.add_widget(self.txtin2)
